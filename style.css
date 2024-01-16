@@ -178,7 +178,7 @@ form button:hover{
     right: 0;
     text-align: center;
     color: var(--tt-error);
-    
+    padding: 1.6rem 0;
     font-weight: bold;
 
     visibility: hidden;
