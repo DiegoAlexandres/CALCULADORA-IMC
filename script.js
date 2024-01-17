@@ -17,11 +17,16 @@ function handleClick(event){
     const weight = inputWeight.value
     const height = inputHeight.value
 
-    let IMC = weight / height**2
+    const result = IMC(weight, height)
 
-    console.log(IMC)
+    console.log(result)
     
 }
+
+function IMC(weight, height){
+    return (weight / ((height / 100) ** 2)).toFixed(2)
+}
+
 
 function handleClickModal(event){
     event.preventDefault()
