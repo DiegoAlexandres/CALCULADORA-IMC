@@ -1,4 +1,6 @@
 import { Modal } from './modal.js'
+import { AlertError } from'./alerta-error.js'
+import { IMC, notNumber} from './utils.js'
 
 export const inputWeight = document.querySelector("#weight")
 export const inputHeight = document.querySelector("#height")
@@ -15,9 +17,11 @@ function handleClick(event){
     const showAlertError = notNumber(weight) || notNumber(height)
 
     if(showAlertError) {
-        console.log('Mostrar alerta de erro')
+        AlertError.open()
         return;
     }
+
+    AlertError.close()
 
 
     const result = IMC(weight, height)
@@ -27,10 +31,3 @@ function handleClick(event){
     Modal.open()
 }
 
-function IMC(weight, height){
-    return (weight / ((height / 100) ** 2)).toFixed(2)
-}
-
-function notNumber(value){
-    return isNaN(value) || value == ""
-}
